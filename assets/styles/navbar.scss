@@ -1,0 +1,22 @@
+.navbar {
+  background-color: $primary-color;
+}
+
+.navbar .navbar-brand {
+  color: $secondary-color;
+  font-family: $title-font;
+  font-size: 2.5rem;
+}
+
+.nav-item a {
+  color: $light-color;
+  font-size: 1.25rem;
+}
+
+.navbar-nav {
+  margin-top: 6px;
+}
+
+.btn {
+  color: $light-color;
+}

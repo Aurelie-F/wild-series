@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+$primary-color: #22223B;
+$secondary-color: #E0CA6B;
+$light-color: #FBF9F9;
+
+$title-font: 'Goldman', cursive;
+$text-font: 'Roboto', sans-serif;
+
+body {
+    font-family: $text-font;
+}
+
+h1, h2 {
+    font-family: $title-font;
+    color: $primary-color;
+}
+
+@import "navbar.scss";
