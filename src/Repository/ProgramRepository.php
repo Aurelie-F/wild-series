@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Program;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,22 +20,21 @@ class ProgramRepository extends ServiceEntityRepository
         parent::__construct($registry, Program::class);
     }
 
-    // /**
-    //  * @return Program[] Returns an array of Program objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $category
+     * @return Program[] Returns an array of Program objects
+     */
+    public function findByCategory($category)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.category = :val')
+            ->setParameter('val', $category)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Program

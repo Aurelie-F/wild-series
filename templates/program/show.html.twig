@@ -1,7 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Program #{{ program.id }}{% endblock %}
+
 {% block body %}
-    <div class="container-fluid">
-        <h1>Program {{ idSerie }}</h1>
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Category : {{ program.category.name }}</p>
+        </div>
     </div>
+
+    <a href="{{ path('program_index') }}">
+        Back to the program list
+    </a>
+
 {% endblock %}
