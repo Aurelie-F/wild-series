@@ -3,18 +3,20 @@
 {% block title %}{{ parent() }} - All programs{% endblock %}
 
 {% block body %}
-    <h1>Programs</h1>
-    {% for program in programs %}
-        <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Category : {{ program.category.name }}</h2>
-            <p>{{ program.summary }}</p>
-            <a href="{{ path("program_show", { id: program.id }) }}">See more</a>
-        </div>
-    {% else %}
-        No program found
-    {% endfor %}
+    <div class="container-fluid ml-4">
+        <h1 class="text-center my-4">Programs</h1>
+        {% for program in programs %}
+            <div>
+                <h2>{{ loop.index }} / {{ program.title }} - Category : {{ program.category.name }}</h2>
+                <p>{{ program.synopsis }}</p>
+                <a href="{{ path("program_show", { id: program.id }) }}">See more</a>
+            </div>
+        {% else %}
+            No program found
+        {% endfor %}
 
-    <a href="{{ path('app_index') }}">
-        Back to the home
-    </a>
+        <a href="{{ path('app_index') }}">
+            Back to the home
+        </a>
+    </div>
 {% endblock %}
