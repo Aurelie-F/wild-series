@@ -12,7 +12,7 @@
                 <p>Category : {{ program.category.name }}</p>
                 <p>Seasons available :
                     {% for season in seasons %}
-                        <a href="{{ path("program_season_show", { programId: program.id , seasonId: season.id }) }}">
+                        <a href="{{ path("program_season_show", { program: program.id , season: season.id }) }}">
                             {{ season.number }}
                         </a>
                     {% else %}

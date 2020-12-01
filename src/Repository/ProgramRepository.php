@@ -20,10 +20,12 @@ class ProgramRepository extends ServiceEntityRepository
         parent::__construct($registry, Program::class);
     }
 
+    /*
     /**
      * @param $category
      * @return Program[] Returns an array of Program objects
      */
+    /*
     public function findByCategory($category)
     {
         return $this->createQueryBuilder('p')
@@ -34,7 +36,7 @@ class ProgramRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
+    }*/
 
     /*
     public function findOneBySomeField($value): ?Program

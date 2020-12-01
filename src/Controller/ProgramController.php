@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,10 +17,12 @@ class ProgramController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+     * @param ProgramRepository $programRepository
+     * @return Response
      */
-    public function index(): Response
+    public function index(ProgramRepository $programRepository): Response
     {
-        $programs = $this->getDoctrine()->getRepository(Program::Class)->findAll();
+        $programs = $programRepository->findAll();
         return $this->render('program/index.html.twig', [
             'programs' => $programs
         ]);
@@ -26,16 +30,14 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}", requirements={"id"="\d+"}, methods={"GET"}, name="show")
-     * @param int $id
+     * @param Program $program
      * @return Response
      */
-    public function show(int $id): Response
+    public function show(Program $program): Response
     {
-        $program = $this->getDoctrine()->getRepository(Program::class)->findOneBy(['id' => $id]);
-
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program with id : '.$id.' found in program\'s table.'
+                'No program found in program\'s table.'
             );
         }
 
@@ -47,29 +49,44 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{programId}/seasons/{seasonId}", requirements={"programId"="\d+", "seasonId"="\d+"}, methods={"GET"}, name="season_show")
-     * @param int $programId
-     * @param int $seasonId
+     * @Route("/{program}/seasons/{season}", requirements={"program"="\d+", "season"="\d+"}, methods={"GET"}, name="season_show")
+     * @param Program $program
+     * @param Season $season
+     * @return Response
      */
-    public function showSeason(int $programId, int $seasonId)
+    public function showSeason(Program $program, Season $season): Response
     {
-        $program = $this->getDoctrine()->getRepository(Program::class)->findOneBy(['id' => $programId]);
-        $season = $this->getDoctrine()->getRepository(Season::class)->findOneBy(['id' => $seasonId]);
-
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program with id : '. $programId .' found in program\'s table.'
+                'No program found in program\'s table.'
             );
         }
         if (!$season) {
             throw $this->createNotFoundException(
-                'No season with id : '. $seasonId .' found in season\'s table.'
+                'No season found in season\'s table.'
             );
         }
 
         return $this->render('program/season_show.html.twig', [
             'program' => $program,
             'season' => $season
+        ]);
+    }
+
+    /**
+     * @Route("/{program}/seasons/{season}/episodes/{episode}", requirements={"program"="\d+", "season"="\d+", "episode"="\d+"},
+     *      methods={"GET"}, name="episode_show")
+     * @param Program $program
+     * @param Season $season
+     * @param Episode $episode
+     * @return Response
+     */
+    public function showEpisode(Program $program, Season $season, Episode $episode): Response
+    {
+        return $this->render('program/episode_show.html.twig', [
+           'program' => $program,
+           'season' => $season,
+           'episode' => $episode
         ]);
     }
 }
