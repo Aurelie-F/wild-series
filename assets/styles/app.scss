@@ -1,9 +1,9 @@
+$primary: #22223B;
 @import "~bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-$primary-color: #22223B;
 $secondary-color: #E0CA6B;
 $light-color: #FBF9F9;
 
@@ -16,7 +16,30 @@ body {
 
 h1, h2 {
     font-family: $title-font;
-    color: $primary-color;
+    color: $primary;
+}
+
+.card-title {
+    font-family: $text-font;
+    font-size: 1.5rem;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    width: 60vw;
+}
+
+.btn-primary:hover {
+    background-color: lighten($primary, 15%);
 }
 
 @import "navbar.scss";

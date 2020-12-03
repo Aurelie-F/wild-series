@@ -5,16 +5,24 @@
 {% block body %}
     <div class="container-fluid ml-4">
         <h1 class="text-center my-4">Programs</h1>
+        <div class="row">
         {% for program in programs %}
-            <div>
-                <h2>{{ loop.index }} / {{ program.title }} - Category : {{ program.category.name }}</h2>
-                <p>{{ program.synopsis }}</p>
-                <a href="{{ path("program_show", { id: program.id }) }}">See more</a>
+            <div class="card mb-3" style="width: 25rem;">
+                <div class="card-body">
+                    <h2 class="card-title">{{ loop.index }} - {{ program.title }}</h2>
+                    <h3 class="card-subtitle mb-2 text-muted">Category : {{ program.category.name }}</h3>
+                    <p class="card-text">{{ program.synopsis }}</p>
+                    <a href="{{ path("program_show", { id: program.id }) }}" class="card-link">See</a>
+                </div>
             </div>
         {% else %}
             No program found
         {% endfor %}
+        </div>
 
+        <div><a href="{{ path('program_new') }}">
+                Add a program
+            </a></div>
         <a href="{{ path('app_index') }}">
             Back to the home
         </a>

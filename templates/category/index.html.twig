@@ -3,16 +3,26 @@
 {% block title %}{{ parent() }} - All categories{% endblock %}
 
 {% block body %}
-    <h1>Categories</h1>
-    {% for category in categories %}
-        <div>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}">{{ loop.index }} / {{ category.name }}</a>
+    <div class="container-fluid ml-4">
+        <h1 class="text-center my-4">Categories</h1>
+        <div class="row">
+            {% for category in categories %}
+                <div class="card mb-3" style="width: 15rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ loop.index }} - {{ category.name }}</h2>
+                        <a href="{{ path("category_show", { categoryName: category.name }) }}" class="card-link">See</a>
+                    </div>
+                </div>
+            {% else %}
+                No category found
+            {% endfor %}
         </div>
-    {% else %}
-        No category found
-    {% endfor %}
 
-    <a href="{{ path('app_index') }}">
-        Back to the home
-    </a>
+        <div><a href="{{ path('category_new') }}">
+                Add a category
+            </a></div>
+        <a href="{{ path('app_index') }}">
+            Back to the home
+        </a>
+    </div>
 {% endblock %}
