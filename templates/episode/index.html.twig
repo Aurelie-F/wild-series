@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Episodes{% endblock %}
+
+{% block body %}
+    <div class="container-fluid ml-4">
+        <h1 class="text-center my-4">Episodes</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Number</th>
+                <th>Synopsis</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for episode in episodes %}
+                <tr>
+                    <td>{{ episode.title }}</td>
+                    <td>{{ episode.number }}</td>
+                    <td>{{ episode.synopsis }}</td>
+                    <td>
+                        <a href="{{ path('episode_show', {'id': episode.id}) }}">Show</a>
+                        <a href="{{ path('episode_edit', {'id': episode.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('episode_new') }}">Create new</a>
+    </div>
+{% endblock %}
