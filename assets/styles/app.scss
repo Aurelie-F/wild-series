@@ -42,4 +42,8 @@ form {
     background-color: lighten($primary, 15%);
 }
 
+.poster {
+    height: 50vh;
+}
+
 @import "navbar.scss";
