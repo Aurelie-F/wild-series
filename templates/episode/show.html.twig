@@ -29,7 +29,7 @@
 
         <a href="{{ path('episode_index') }}">Back to list</a>
 
-        <a href="{{ path('episode_edit', {'id': episode.id}) }}">Edit</a>
+        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">Edit</a>
 
         {{ include('episode/_delete_form.html.twig') }}
     </div>
