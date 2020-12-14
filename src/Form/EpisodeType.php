@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Episode;
+use App\Entity\Season;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -18,8 +19,9 @@ class EpisodeType extends AbstractType
             ->add('title', TextType::class)
             ->add('number', IntegerType::class)
             ->add('synopsis', TextareaType::class)
-            ->add('season', null, ['choice_label' => 'number'])
-        ;
+            ->add('season', null, ['choice_label' => function (Season $season) {
+                return $season->getProgram()->getTitle() . ' - S' . $season->getNumber();
+            }]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
