@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Season{% endblock %}
+
+{% block body %}
+    <div class="container-fluid ml-4">
+        <h1 class="text-center my-4">Edit program</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Add program</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('program_index') }}">Back to list</a>
+    </div>
+{% endblock %}

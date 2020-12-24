@@ -18,6 +18,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ comment.comment }}</p>
+                            {% if is_granted("ROLE_ADMIN") or app.user == comment.author %}
+                                {{ include ('comment/_delete_form.html.twig') }}
+                            {% endif %}
                         </div>
                         <div class="card-footer text-muted">
                             Posted by {{ comment.author.email}}

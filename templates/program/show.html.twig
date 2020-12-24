@@ -34,6 +34,9 @@
             </div>
         </div>
 
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Edit</a>
+        {% endif %}
         <a href="{{ path('program_index') }}">
             Back to the program list
         </a>
