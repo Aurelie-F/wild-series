@@ -5,19 +5,25 @@
 {% block body %}
     <div class="container-fluid ml-4">
         <h1 class="text-center my-4">Programs</h1>
-        <div class="row">
-        {% for program in programs %}
-            <div class="card mb-3" style="width: 25rem;">
-                <div class="card-body">
-                    <h2 class="card-title">{{ loop.index }} - {{ program.title }}</h2>
-                    <h3 class="card-subtitle mb-2 text-muted">Category : {{ program.category.name }}</h3>
-                    <p class="card-text">{{ program.synopsis }}</p>
-                    <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">See</a>
+        {{ form_start(form, {'attr': {'class': 'search'}}) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary ml-4">Search</button>
+        {{ form_end(form) }}
+        <div class="row mt-4">
+            {% for program in programs %}
+                <div class="col-3">
+                    <div class="card mb-3" style="width: 28rem; height: 22rem">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">{{ loop.index }} - {{ program.title }}</h2>
+                            <h3 class="card-subtitle my-2 text-muted text-center">Category : {{ program.category.name }}</h3>
+                            <p class="card-text my-4">{{ program.synopsis }}</p>
+                            <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">See</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        {% else %}
-            No program found
-        {% endfor %}
+            {% else %}
+                No program found
+            {% endfor %}
         </div>
 
         <div><a href="{{ path('program_new') }}">

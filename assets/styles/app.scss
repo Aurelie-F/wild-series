@@ -42,6 +42,16 @@ form {
     background-color: lighten($primary, 15%);
 }
 
+.search {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search .form-group {
+    margin-bottom: 0;
+}
+
 .poster {
     height: 50vh;
 }
