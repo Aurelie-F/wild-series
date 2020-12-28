@@ -74,13 +74,16 @@ class ProgramController extends AbstractController
             $entityManager->persist($program);
             // Flush the persisted object
             $entityManager->flush();
+
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to('your_email@example.com')
                 ->subject('New program !')
                 ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
-
             $mailer->send($email);
+
+            $this->addFlash('success', 'The new program has been created');
+
             return $this->redirectToRoute('program_index');
         }
 
@@ -107,6 +110,7 @@ class ProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'The program has been updated');
 
             return $this->redirectToRoute('program_index');
         }

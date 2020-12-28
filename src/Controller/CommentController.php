@@ -26,6 +26,7 @@ class CommentController extends AbstractController
         if ($this->isCsrfTokenValid('delete'. $comment->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($comment);
+            $this->addFlash('danger', 'The comment has been deleted');
             $entityManager->flush();
         }
 

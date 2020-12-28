@@ -5,7 +5,6 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
-use App\Entity\Program;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProgramRepository;
@@ -60,6 +59,8 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             // Flush the persisted object
             $entityManager->flush();
+            $this->addFlash('success', 'The new category has been created');
+
             // Finally redirect to categories list
             return $this->redirectToRoute('category_index');
         }
