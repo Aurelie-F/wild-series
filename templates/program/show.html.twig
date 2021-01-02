@@ -7,7 +7,16 @@
         <div class="media">
             <img class="align-self-start mr-3 poster" src="{{program.poster}}" alt="{{ program.title }} poster">
             <div class="media-body">
-                <h1 class="mt-0">{{ program.title }}</h1>
+                <h1 class="mt-0">
+                    {{ program.title }}
+                    {% if app.user %}
+                        <button id="watchlist" >
+                            <i id="watchlistIcon" class="watchlist {{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart ml-2"
+                               data-href="{{ path("program_watchlist", { slug: program.slug}) }}"
+                            ></i>
+                        </button>
+                    {% endif %}
+                </h1>
                 <p class="w-75">{{ program.synopsis }}</p>
                 <p>Category : {{ program.category.name }}</p>
                 <p>Seasons available :
@@ -41,4 +50,9 @@
             Back to the program list
         </a>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('watchlist') }}
+    {{ parent() }}
 {% endblock %}

@@ -28,3 +28,5 @@ Quête 21 : https://www.loom.com/share/2c9b3e5d684241479a75cb872ebf7158
 Quête 22 : https://www.loom.com/share/2c5c334026ad4abd886e4ac3801b5602
 
 Quête 23 : https://www.loom.com/share/ca4e2d54ab8540a69e0a591965342680
+
+Quête 24 : https://www.loom.com/share/f27e279514734ead8fb19363227b24fb
