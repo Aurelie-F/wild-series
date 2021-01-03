@@ -4,7 +4,9 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="text-center my-4">Season {{ season.number }} Episode {{ episode.number }} of {{ program.title }}</h1>
+        <h1 class="text-center my-4">
+            {{ 'season'|trans }} {{ season.number }} {{ 'episode'|trans }} {{ episode.number }} | {{ program.title }}
+        </h1>
         <h2 class="mb-4">{{ episode.title }}</h2>
         <div class="mb-4 mr-5">
             {{ episode.synopsis }}
@@ -14,7 +16,7 @@
                 <div class="col-4 mb-2">
                     <div class="card">
                         <div class="card-header">
-                            <span class="badge badge-success">Note : {{ comment.rate }} / 5 </span>
+                            <span class="badge badge-success">{{ 'note'|trans }} : {{ comment.rate }} / 5 </span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ comment.comment }}</p>
@@ -23,7 +25,7 @@
                             {% endif %}
                         </div>
                         <div class="card-footer text-muted">
-                            Posted by {{ comment.author.email}}
+                            {{ 'posted_by'|trans }} {{ comment.author.email}}
                         </div>
                     </div>
                 </div>
@@ -31,9 +33,9 @@
         </div>
         {% if app.user %}
             {{ form_start(form) }}
-            <h3 class="mt-4">Leave a comment</h3>
+            <h3 class="mt-4">{{ 'comment.leave'|trans }}</h3>
             {{ form_widget(form) }}
-            <button class="btn btn-primary">Post</button>
+            <button class="btn btn-primary">{{ 'post'|trans }}</button>
             {{ form_end(form) }}
         {% endif %}
     </div>

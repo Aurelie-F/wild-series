@@ -3,19 +3,19 @@
 {% block title %}{{ parent() }} - Programs{% endblock %}
 
 {% block body %}
-    <h1>Programs - {{ category }}</h1>
+    <h1>{{ 'category'|trans }} {{ category }}</h1>
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }}</h2>
             <p>{{ program.synopsis }}</p>
-            <a href="{{ path("program_show", { id: program.id }) }}">See more</a>
+            <a href="{{ path("program_show", { slug: program.slug }) }}">{{ 'see'|trans }}</a>
         </div>
     {% else %}
-        No program found
+        {{ 'no_program'|trans }}
     {% endfor %}
     <div>
         <a href="{{ path('category_index') }}">
-            Back to the list
+            {{ 'back_list'|trans }}
         </a>
     </div>
 {% endblock %}

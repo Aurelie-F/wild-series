@@ -4,20 +4,20 @@
 
 {% block body %}
     <div class="container-fluid ml-4">
-        <h1 class="text-center my-4">Season {{ season.number }} of {{ program.title }}</h1>
+        <h1 class="text-center my-4">{{ 'season'|trans }} {{ season.number }} | {{ program.title }}</h1>
         <div class="mb-2">
             {{ season.description }}
         </div>
-        <h2>List of episodes</h2>
+        <h2>{{ 'episode.list'|trans }}</h2>
         <ul>
             {% for episode in season.episodes %}
                 <li>
                     <a href="{{ path("program_episode_show", { program: program.id , season: season.id, episode: episode.id }) }}">
-                        Episode {{ episode.number }} : {{ episode.title }}
+                        {{ 'episode'|trans }} {{ episode.number }} : {{ episode.title }}
                     </a>
                 </li>
             {% else %}
-                No episode found
+                {{ 'no_episode'|trans }}
             {% endfor %}
         </ul>
     </div>

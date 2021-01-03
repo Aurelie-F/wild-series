@@ -4,10 +4,10 @@
 
 {% block body %}
     <div class="container-fluid ml-4">
-        <h1 class="text-center my-4">Programs</h1>
+        <h1 class="text-center my-4">{{ 'programs'|trans }}</h1>
         {{ form_start(form, {'attr': {'class': 'search'}}) }}
         {{ form_widget(form) }}
-        <button class="btn btn-primary ml-4">Search</button>
+        <button class="btn btn-primary ml-4">{{ 'search'|trans }}</button>
         {{ form_end(form) }}
         <div class="row mt-4">
             {% for program in programs %}
@@ -15,22 +15,24 @@
                     <div class="card mb-3" style="width: 28rem; height: 22rem">
                         <div class="card-body">
                             <h2 class="card-title text-center">{{ loop.index }} - {{ program.title }}</h2>
-                            <h3 class="card-subtitle my-2 text-muted text-center">Category : {{ program.category.name }}</h3>
+                            <h3 class="card-subtitle my-2 text-muted text-center">
+                                {{ 'category'|trans }} : {{ program.category.name }}
+                            </h3>
                             <p class="card-text my-4">{{ program.synopsis }}</p>
-                            <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">See</a>
+                            <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">{{ 'see'|trans }}</a>
                         </div>
                     </div>
                 </div>
             {% else %}
-                No program found
+                {{ 'no_program'|trans }}
             {% endfor %}
         </div>
 
         <div><a href="{{ path('program_new') }}">
-                Add a program
+                {{ 'program.add'|trans }}
             </a></div>
         <a href="{{ path('app_index') }}">
-            Back to the home
+            {{ 'back_home'|trans }}
         </a>
     </div>
 {% endblock %}

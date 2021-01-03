@@ -1,26 +1,26 @@
 <nav class="navbar sticky-top navbar-expand-lg align-items-center mb-2">
-    <a class="navbar-brand" href="/">Wild series</a>
+    <a class="navbar-brand" href="/{{ app.request.locale }}">Wild series</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item ml-2">
-                <a class="nav-link" href="{{ path('program_index') }}">Program</a>
+                <a class="nav-link" href="{{ path('program_index') }}">{{ 'program'|trans }}</a>
             </li>
             <li class="nav-item ml-1">
-                <a class="nav-link" href="{{ path('category_index') }}">Categories</a>
+                <a class="nav-link" href="{{ path('category_index') }}">{{ 'categories'|trans }}</a>
             </li>
             <li class="nav-item ml-1">
-                <a class="nav-link" href="{{ path('actor_index') }}">Actors</a>
+                <a class="nav-link" href="{{ path('actor_index') }}">{{ 'actors'|trans }}</a>
             </li>
             <li class="nav-item ml-1">
-                <a class="nav-link" href="#">My favourites</a>
+                <a class="nav-link" href="#">{{ 'favourites'|trans }}</a>
             </li>
         </ul>
     </div>
     {% if app.user %}
-        <a class="connect" href="{{ path('app_logout') }}">Log out</a>
+        <a class="connect" href="{{ path('app_logout') }}">{{ 'account.log_out'|trans }}</a>
         <a class="btn" href="{{ path('user_profile') }}">
             <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
@@ -30,8 +30,40 @@
             {{ app.user.email }}
         </a>
     {% else %}
-        <a class="connect mr-3" href="{{ path('app_login') }}">Log In</a>
-        <a class="connect" href="{{ path('app_register') }}">Register</a>
+        <a class="connect mr-3" href="{{ path('app_login') }}">{{ 'account.log_in'|trans }}</a>
+        <a class="connect" href="{{ path('app_register') }}">{{ 'account.register'|trans }}</a>
     {% endif %}
-
+    <div>
+        {% if app.request.locale == 'fr' %}
+            <a class="connect ml-3" href="{{ path('app_index', {_locale: 'en'}) }}">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="35" height="35"
+                     viewBox="0 0 48 48"
+                     style=" fill:#000000;">
+                    <path fill="#3F51B5" d="M2 10H46V38H2z"></path>
+                    <path fill="#FFF" d="M2 14.216L22.81 26.935 25.939 21.815 6.608 10 2 10z"></path>
+                    <path fill="#FFF" d="M46 10L42.391 10 23.061 21.814 26.189 26.935 46 14.826z"></path>
+                    <path fill="#FFF" d="M26.189 20.271L23.061 25.391 43.691 38 46 38 46 32.379z"></path>
+                    <path fill="#FFF" d="M2 32.991L2 38 5.31 38 25.939 25.392 22.811 20.271z"></path>
+                    <path fill="#FFF" d="M2 20H46V28H2z"></path>
+                    <path fill="#FFF" d="M20 10H28V38H20z"></path>
+                    <g>
+                        <path fill="#E53935" d="M17.218 20L2 10.699 2 13.043 13.382 20zM44.309 10L27.947 20 31.782 20 46 11.311 46 10zM33.082 28L46 35.895 46 33.551 36.917 28zM15.918 28L2 36.506 2 38 3.392 38 19.753 28zM2 22H46V26H2z"></path>
+                        <path fill="#E53935" d="M22 10H26V38H22z"></path>
+                    </g>
+                </svg>
+            </a>
+        {% else %}
+            <a class="connect ml-3" href="{{ path('app_index', {_locale: 'fr'}) }}">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="35" height="35"
+                     viewBox="0 0 48 48"
+                     style=" fill:#000000;">
+                    <path fill="#ECEFF1" d="M16 9H32V39H16z"></path>
+                    <path fill="#FF3D00" d="M32 9H46V39H32z"></path>
+                    <path fill="#3F51B5" d="M2 9H16V39H2z"></path>
+                </svg>
+            </a>
+        {% endif %}
+    </div>
 </nav>

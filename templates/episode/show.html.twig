@@ -13,23 +13,23 @@
                 <td>{{ episode.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>{{ 'episode.title'|trans }}</th>
                 <td>{{ episode.title }}</td>
             </tr>
             <tr>
-                <th>Number</th>
+                <th>{{ 'episode.number'|trans }}</th>
                 <td>{{ episode.number }}</td>
             </tr>
             <tr>
-                <th>Synopsis</th>
+                <th>{{ 'episode.synopsis'|trans }}</th>
                 <td>{{ episode.synopsis }}</td>
             </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('episode_index') }}">Back to list</a>
+        <a href="{{ path('episode_index') }}">{{ 'back_list'|trans }}</a>
 
-        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">Edit</a>
+        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ 'update'|trans }}</a>
 
         {{ include('episode/_delete_form.html.twig') }}
     </div>

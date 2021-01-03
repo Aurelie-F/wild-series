@@ -4,10 +4,10 @@
 
 {% block body %}
     <div class="container-fluid ml-4">
-        <h1 class="text-center my-4">Add a new Season</h1>
+        <h1 class="text-center my-4">{{ 'season.new_title'|trans }}</h1>
 
-        {{ include('season/_form.html.twig', {'button_label': 'Add'}) }}
+        {{ include('season/_form.html.twig', {'button_label': 'add'|trans }) }}
 
-        <a href="{{ path('season_index') }}">Back to list</a>
+        <a href="{{ path('season_index') }}">{{ 'back_list'|trans }}</a>
     </div>
 {% endblock %}

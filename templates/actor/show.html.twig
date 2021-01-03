@@ -5,12 +5,12 @@
 {% block body %}
 <div class="container-fluid ml-2">
     <h1 class="text-center my-4">{{ actor.name }}</h1>
-    <h2>List of programs</h2>
+    <h2>{{ 'program.list'|trans }}</h2>
     <ul>
         {% for program in actor.programs %}
             <li><a href="{{ path("program_show", { id: program.id }) }}">{{ program.title }}</a></li>
         {% else %}
-            No program found
+            {{ 'no_program'|trans }}
         {% endfor %}
     </ul>
 </div>

@@ -4,12 +4,12 @@
 
 {% block body %}
     <div class="container-fluid ml-4">
-        <h1 class="text-center my-4">Edit program</h1>
+        <h1 class="text-center my-4">{{ 'program.update'|trans }}</h1>
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button type="submit" class="btn btn-primary">Add program</button>
+        <button type="submit" class="btn btn-primary">{{ 'update'|trans }}</button>
         {{ form_end(form) }}
 
-        <a href="{{ path('program_index') }}">Back to list</a>
+        <a href="{{ path('program_index') }}">{{ 'back_list'|trans }}</a>
     </div>
 {% endblock %}

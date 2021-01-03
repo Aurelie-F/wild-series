@@ -4,15 +4,15 @@
 
 {% block body %}
     <div class="container-fluid ml-4">
-        <h1 class="text-center my-4">Episodes</h1>
+        <h1 class="text-center my-4">{{ 'episodes'|trans }}</h1>
 
         <table class="table">
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Number</th>
-                <th>Synopsis</th>
-                <th>Actions</th>
+                <th>{{ 'episode.title'|trans }}</th>
+                <th>{{ 'episode.number'|trans }}</th>
+                <th>{{ 'episode.synopsis'|trans }}</th>
+                <th>{{ 'actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -22,18 +22,18 @@
                     <td>{{ episode.number }}</td>
                     <td>{{ episode.synopsis }}</td>
                     <td>
-                        <a href="{{ path('episode_show', {'slug': episode.slug}) }}">Show</a>
-                        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">Edit</a>
+                        <a href="{{ path('episode_show', {'slug': episode.slug}) }}">{{ 'show'|trans }}</a>
+                        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ 'update'|trans }}</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">no records found</td>
+                    <td colspan="5">{{ 'no_episode'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
-        <a href="{{ path('episode_new') }}">Create new</a>
+        <a href="{{ path('episode_new') }}">{{ 'episode.new'|trans }}</a>
     </div>
 {% endblock %}

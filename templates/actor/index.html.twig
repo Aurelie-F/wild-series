@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} - All categories{% endblock %}
+{% block title %}{{ parent() }} - All actors{% endblock %}
 
 {% block body %}
     <div class="container-fluid">
-        <h1 class="text-center my-4">Actors</h1>
+        <h1 class="text-center my-4">{{ 'actors'|trans }}</h1>
         <div class="row justify-content-center">
             {% for actor in actors %}
                 <div class="card mb-3 ml-2" style="width: 15rem;">
@@ -14,12 +14,12 @@
                     </div>
                 </div>
             {% else %}
-                No category found
+                {{ 'no_actor'|trans }}
             {% endfor %}
         </div>
 
         <a href="{{ path('app_index') }}">
-            Back to the home
+            {{ 'back_home'|trans }}
         </a>
     </div>
 {% endblock %}
