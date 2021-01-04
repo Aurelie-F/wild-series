@@ -3,7 +3,7 @@
 {% block title %}{{ parent() }} - Programs{% endblock %}
 
 {% block body %}
-    <h1>{{ 'category'|trans }} {{ category }}</h1>
+    <h1>{{ category }}</h1>
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }}</h2>

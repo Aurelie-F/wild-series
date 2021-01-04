@@ -8,8 +8,16 @@
             <li class="nav-item ml-2">
                 <a class="nav-link" href="{{ path('program_index') }}">{{ 'program'|trans }}</a>
             </li>
-            <li class="nav-item ml-1">
-                <a class="nav-link" href="{{ path('category_index') }}">{{ 'categories'|trans }}</a>
+            <li class="nav-item dropdown ml-1">
+                <a class="nav-link dropdown-toggle" href="{{ path('category_index') }}" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'categories'|trans }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{ render(controller(
+                        'App\\Controller\\DefaultController::navbarTop'
+                    )) }}
+                </div>
             </li>
             <li class="nav-item ml-1">
                 <a class="nav-link" href="{{ path('actor_index') }}">{{ 'actors'|trans }}</a>

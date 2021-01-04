@@ -32,3 +32,5 @@ Quête 23 : https://www.loom.com/share/ca4e2d54ab8540a69e0a591965342680
 Quête 24 : https://www.loom.com/share/f27e279514734ead8fb19363227b24fb
 
 Quête 25 : https://www.loom.com/share/796797dea8134f6682589c89ebbf6545
+
+Quête 26 : https://www.loom.com/share/bf37acdc6c2a41d086aa0ce3c360d632
