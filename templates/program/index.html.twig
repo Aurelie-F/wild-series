@@ -3,7 +3,7 @@
 {% block title %}{{ parent() }} - All programs{% endblock %}
 
 {% block body %}
-    <div class="container-fluid ml-4">
+    <div class="container-fluid">
         <h1 class="text-center my-4">{{ 'programs'|trans }}</h1>
         {{ form_start(form, {'attr': {'class': 'search'}}) }}
         {{ form_widget(form) }}
@@ -11,14 +11,14 @@
         {{ form_end(form) }}
         <div class="row mt-4">
             {% for program in programs %}
-                <div class="col-3">
-                    <div class="card mb-3" style="width: 28rem; height: 22rem">
+                <div class="col-4">
+                    <div class="card mb-3" style="width: 28rem; height: 24rem">
                         <div class="card-body">
                             <h2 class="card-title text-center">{{ loop.index }} - {{ program.title }}</h2>
                             <h3 class="card-subtitle my-2 text-muted text-center">
                                 {{ 'category'|trans }} : {{ program.category.name }}
                             </h3>
-                            <p class="card-text my-4">{{ program.synopsis }}</p>
+                            <p class="card-text my-4 mx-3">{{ program.synopsis }}</p>
                             <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">{{ 'see'|trans }}</a>
                         </div>
                     </div>

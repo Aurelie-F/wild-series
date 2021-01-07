@@ -183,7 +183,7 @@
       </trans-unit>
       <trans-unit id="565xXSG" resname="signin">
         <source>signin</source>
-        <target>S'inscrire</target>
+        <target>Se connecter</target>
       </trans-unit>
       <trans-unit id="giREF.l" resname="email">
         <source>email</source>
@@ -228,6 +228,38 @@
       <trans-unit id="GQDqtsA" resname="profile">
         <source>profile</source>
         <target>Mon profil</target>
+      </trans-unit>
+      <trans-unit id="1" resname="program.title">
+         <source>program.title</source>
+         <target>Titre</target>
+      </trans-unit>
+      <trans-unit id="2" resname="program.synopsis">
+         <source>program.synopsis</source>
+         <target>Résumé</target>
+      </trans-unit>
+      <trans-unit id="3" resname="program.country">
+         <source>program.country</source>
+         <target>Pays</target>
+      </trans-unit>
+      <trans-unit id="4" resname="program.year">
+         <source>program.year</source>
+         <target>Année</target>
+      </trans-unit>
+      <trans-unit id="5" resname="program.poster">
+         <source>program.poster</source>
+         <target>Affiche</target>
+      </trans-unit>
+      <trans-unit id="6" resname="actor.name">
+        <source>actor.name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="7" resname="actor.photo">
+         <source>actor.photo</source>
+         <target>Photo</target>
+      </trans-unit>
+      <trans-unit id="8" resname="actor.add_title">
+         <source>actor.add_title</source>
+         <target>Ajouter un nouvel acteur</target>
       </trans-unit>
     </body>
   </file>

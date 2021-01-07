@@ -229,6 +229,38 @@
         <source>profile</source>
         <target>My profile</target>
       </trans-unit>
+      <trans-unit id="1" resname="program.title">
+        <source>program.title</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="2" resname="program.synopsis">
+        <source>program.synopsis</source>
+        <target>Synopsis</target>
+      </trans-unit>
+      <trans-unit id="3" resname="program.country">
+        <source>program.country</source>
+        <target>Country</target>
+      </trans-unit>
+      <trans-unit id="4" resname="program.year">
+        <source>program.year</source>
+        <target>Year</target>
+      </trans-unit>
+      <trans-unit id="5" resname="program.poster">
+        <source>program.poster</source>
+        <target>Poster</target>
+      </trans-unit>
+      <trans-unit id="6" resname="actor.name">
+         <source>actor.name</source>
+         <target>Name</target>
+      </trans-unit>
+      <trans-unit id="7" resname="actor.photo">
+         <source>actor.photo</source>
+         <target>Photo</target>
+      </trans-unit>
+      <trans-unit id="8" resname="actor.add_title">
+         <source>actor.add_title</source>
+         <target>Add a new actor</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
